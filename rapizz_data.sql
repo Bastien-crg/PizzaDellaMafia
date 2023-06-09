@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 09 juin 2023 à 09:13
+-- Généré le : ven. 09 juin 2023 à 15:21
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -37,7 +37,8 @@ INSERT INTO `client` (`id_client`, `solde`, `adresse`, `stack`, `nom_client`) VA
 
 INSERT INTO `commande` (`id_commande`, `prix_effectif`, `date_commande`, `delivery_time`, `id_client`) VALUES
 (0, '18.50', '2023-06-08 09:04:25', 15, 0),
-(1, '0', '2023-06-05 09:10:10', 35, 0);
+(1, '0', '2023-06-05 09:10:10', 35, 0),
+(2, '8.50', '2023-06-01 09:32:51', 10, 2);
 
 --
 -- Déchargement des données de la table `containing`
@@ -45,6 +46,7 @@ INSERT INTO `commande` (`id_commande`, `prix_effectif`, `date_commande`, `delive
 
 INSERT INTO `containing` (`idPizza`, `idSize`, `id_commande`, `quantite`) VALUES
 (0, 1, 0, 1),
+(0, 1, 2, 1),
 (1, 1, 0, 1),
 (1, 2, 1, 2),
 (2, 2, 1, 1);
@@ -85,7 +87,8 @@ INSERT INTO `ingredient` (`id_ingredient`, `nom_ingredient`) VALUES
 
 INSERT INTO `livre` (`id_livreur`, `id_vehicule`, `id_commande`) VALUES
 (0, 2, 0),
-(1, 0, 1);
+(1, 0, 1),
+(1, 2, 2);
 
 --
 -- Déchargement des données de la table `livreur`

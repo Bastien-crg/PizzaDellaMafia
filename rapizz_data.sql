@@ -25,6 +25,8 @@ SET time_zone = "+00:00";
 -- Déchargement des données de la table `client`
 --
 
+USE rapizz;
+
 INSERT INTO `client` (`id_client`, `solde`, `adresse`, `stack`, `nom_client`) VALUES
 (0, 150.00, '1 rue de la street', 2, 'Sebastien'),
 (1, 0.00, '27bis avenue des chats', 0, 'Isabelle'),
@@ -44,12 +46,7 @@ INSERT INTO `commande` (`id_commande`, `prix_effectif`, `date_commande`, `delive
 -- Déchargement des données de la table `containing`
 --
 
-INSERT INTO `containing` (`idPizza`, `idSize`, `id_commande`, `quantite`) VALUES
-(0, 1, 0, 1),
-(0, 1, 2, 1),
-(1, 1, 0, 1),
-(1, 2, 1, 2),
-(2, 2, 1, 1);
+
 
 --
 -- Déchargement des données de la table `has_ingredient`
@@ -125,6 +122,13 @@ INSERT INTO `vehicule` (`id_vehicule`, `type`) VALUES
 (1, 'Voiture'),
 (2, 'Scooter');
 COMMIT;
+
+INSERT INTO `containing` (`idPizza`, `idSize`, `id_commande`, `quantite`) VALUES
+(0, 1, 0, 1),
+(0, 1, 2, 1),
+(1, 1, 0, 1),
+(1, 2, 1, 2),
+(2, 2, 1, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

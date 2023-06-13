@@ -44,9 +44,9 @@ CREATE TABLE size(
 
 CREATE TABLE Commande(
    id_commande INT,
-   prix_effectif VARCHAR(50),
+   prix_effectif DECIMAL(15,2),
    date_commande DATETIME,
-   delivery_time INT,
+   delivery_time DECIMAL(15,2),
    id_client INT NOT NULL,
    PRIMARY KEY(id_commande),
    FOREIGN KEY(id_client) REFERENCES Client(id_client)

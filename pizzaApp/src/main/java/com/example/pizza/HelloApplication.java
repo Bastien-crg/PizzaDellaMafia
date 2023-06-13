@@ -20,14 +20,9 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-
-       //Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-
-
-        Connection cx = DriverManager.getConnection("jdbc:mysql://localhost:3306/rapizz?user=root&password=root");
+        Connection cx = DBConnection.GetConn();
         Statement statement = cx.createStatement();
         ResultSet res = statement.executeQuery("SELECT * FROM pizza ;");
-        //System.out.println(res.getString("pizzaName"));
         while (res.next()) {
             System.out.println(res.getString("pizzaName"));
         }

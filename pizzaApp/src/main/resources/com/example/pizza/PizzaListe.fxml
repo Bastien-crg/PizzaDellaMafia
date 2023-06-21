@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.pizza.PizzaListe"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pizza.PizzaListeController">
+   <children>
+      <ListView fx:id="ListePizza" layoutY="90.0" prefHeight="310.0" prefWidth="344.0" />
+      <Button fx:id="Menu" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#ButtonGoToAcceuil" prefHeight="31.0" prefWidth="85.0" text="Menu" />
+      <Text fill="RED" layoutX="157.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your pizza" wrappingWidth="286.0">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <Text fx:id="LabelPizza" layoutX="344.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Label" textAlignment="CENTER" wrappingWidth="256.583984375">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+   </children>
 </AnchorPane>

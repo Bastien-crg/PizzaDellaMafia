@@ -4,16 +4,17 @@ import com.example.pizza.model.ingredient.Ingredient;
 import com.example.pizza.model.size.Size;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Pizza {
     private int idPizza;
     private String pizzaName;
     private float price;
-    private ArrayList<Ingredient> ingredients;
+    private List<Ingredient> ingredients;
     private Size size;
 
-    public Pizza(int idPizza, String pizzaName, float price, ArrayList<Ingredient> ingredients, Size size) {
+    public Pizza(int idPizza, String pizzaName, float price, List<Ingredient> ingredients, Size size) {
         this.idPizza = idPizza;
         this.pizzaName = pizzaName;
         this.price = price;
@@ -45,11 +46,11 @@ public class Pizza {
         this.price = price;
     }
 
-    public ArrayList<Ingredient> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(ArrayList<Ingredient> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 

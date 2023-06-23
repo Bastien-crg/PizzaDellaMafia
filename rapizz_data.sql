@@ -48,21 +48,7 @@ INSERT INTO `commande` (`id_commande`, `prix_effectif`, `date_commande`, `delive
 
 
 
---
--- Déchargement des données de la table `has_ingredient`
---
 
-INSERT INTO `has_ingredient` (`idPizza`, `id_ingredient`) VALUES
-(0, 0),
-(0, 6),
-(1, 0),
-(1, 4),
-(1, 5),
-(1, 6),
-(2, 1),
-(2, 2),
-(2, 3),
-(2, 6);
 
 --
 -- Déchargement des données de la table `ingredient`
@@ -78,14 +64,6 @@ INSERT INTO `ingredient` (`id_ingredient`, `nom_ingredient`) VALUES
 (6, 'Emmental'),
 (7, 'Mozzarella');
 
---
--- Déchargement des données de la table `livre`
---
-
-INSERT INTO `livre` (`id_livreur`, `id_vehicule`, `id_commande`) VALUES
-(0, 2, 0),
-(1, 0, 1),
-(1, 2, 2);
 
 --
 -- Déchargement des données de la table `livreur`
@@ -105,6 +83,22 @@ INSERT INTO `pizza` (`idPizza`, `pizzaName`, `price`) VALUES
 (2, 'Campagnarde', 10.50);
 
 --
+-- Déchargement des données de la table `has_ingredient`
+--
+
+INSERT INTO `has_ingredient` (`idPizza`, `id_ingredient`) VALUES
+(0, 0),
+(0, 6),
+(1, 0),
+(1, 4),
+(1, 5),
+(1, 6),
+(2, 1),
+(2, 2),
+(2, 3),
+(2, 6);
+
+--
 -- Déchargement des données de la table `size`
 --
 
@@ -122,6 +116,16 @@ INSERT INTO `vehicule` (`id_vehicule`, `type`) VALUES
 (1, 'Voiture'),
 (2, 'Scooter');
 COMMIT;
+
+--
+-- Déchargement des données de la table `livre`
+--
+
+INSERT INTO `livre` (`id_livreur`, `id_vehicule`, `id_commande`) VALUES
+(0, 2, 0),
+(1, 0, 1),
+(1, 2, 2);
+
 
 INSERT INTO `containing` (`idPizza`, `idSize`, `id_commande`, `quantite`) VALUES
 (0, 1, 0, 1),

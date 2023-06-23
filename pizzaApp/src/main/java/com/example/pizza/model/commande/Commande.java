@@ -6,6 +6,7 @@ import com.example.pizza.model.pizza.Pizza;
 import com.example.pizza.model.vehicule.Vehicule;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Commande {
@@ -13,14 +14,14 @@ public class Commande {
     private float prixEffectif;
 
     // timestamp
-    private int dateCommande;
+    private String dateCommande;
     private int deliveryTime;
-    private ArrayList<Pizza> pizzas;
+    private List<Pizza> pizzas;
     private Client client;
     private Livreur livreur;
     private Vehicule vehicule;
 
-    public Commande(int idCommande, float prixEffectif, int dateCommande, int deliveryTime, ArrayList<Pizza> pizzas, Client client, Livreur livreur, Vehicule vehicule) {
+    public Commande(int idCommande, float prixEffectif, String dateCommande, int deliveryTime, List<Pizza> pizzas, Client client, Livreur livreur, Vehicule vehicule) {
         this.idCommande = idCommande;
         this.prixEffectif = prixEffectif;
         this.dateCommande = dateCommande;
@@ -47,11 +48,11 @@ public class Commande {
         this.prixEffectif = prixEffectif;
     }
 
-    public int getDateCommande() {
+    public String getDateCommande() {
         return dateCommande;
     }
 
-    public void setDateCommande(int dateCommande) {
+    public void setDateCommande(String dateCommande) {
         this.dateCommande = dateCommande;
     }
 
@@ -63,11 +64,11 @@ public class Commande {
         this.deliveryTime = deliveryTime;
     }
 
-    public ArrayList<Pizza> getPizzas() {
+    public List<Pizza> getPizzas() {
         return pizzas;
     }
 
-    public void setPizzas(ArrayList<Pizza> pizzas) {
+    public void setPizzas(List<Pizza> pizzas) {
         this.pizzas = pizzas;
     }
 

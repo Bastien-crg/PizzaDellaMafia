@@ -15,7 +15,7 @@ import java.util.List;
 
 public class CommandDAO {
 
-    public List<Commande> getCommands() throws SQLException {
+    public static List<Commande> getCommands() throws SQLException {
         ArrayList<Commande> commandes = new ArrayList<>();
         PreparedStatement stm = DBConnection.GetConn().prepareStatement("SELECT * FROM commande");
         ResultSet res = stm.executeQuery();

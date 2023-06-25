@@ -61,7 +61,7 @@ public class CommandeListeController implements Initializable {
         for (Commande commande :
                 commandes) {
             try {
-                commandeStr.add(getLabelText(commande));
+                commandeStr.add(getLabelText(commande) );
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -74,11 +74,11 @@ public class CommandeListeController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1)  {
                 currentCommande = ListeCommande.getSelectionModel().getSelectedItem();
+
                 for(Commande commande :
                         commandes){
                     try {
                         if(Objects.equals(currentCommande,getLabelText(commande))){
-
                             String client = "Client : " + commande.getClient().getNomClient();
                             String date = "Date : " + commande.getDateCommande().toString();
                             List<Pizza> pizzaCommande = PizzaDAO.getCommandPizzas(commande.getIdCommande());
@@ -88,8 +88,12 @@ public class CommandeListeController implements Initializable {
                             }
                             String livreur = "Livreur : " +commande.getLivreur().getNomLivreur();
                             String vehicule = "Vehicule : " + commande.getVehicule().getType();
-                            System.out.println(pizza);
-                            String label = client + "\n" + date + "\n" + pizza + "\n" + vehicule;
+                            String retardStr ="";
+                            if(commande.getDeliveryTime() > 30){
+                                int retard = (commande.getDeliveryTime()-30);
+                                retardStr = "\n Retard de " + retard + "minutes, Pizza gratuite";
+                            }
+                            String label = client + "\n" + date + "\n" + pizza + vehicule + retardStr;
                             LabelCommande.setText(label);
                         }
                     } catch (SQLException e) {
@@ -101,6 +105,17 @@ public class CommandeListeController implements Initializable {
     }
 
     private String getLabelText(Commande commande) throws SQLException {
-        return ClientDAO.getCommandClient(commande.getIdCommande()).getNomClient() + " " + commande.getDateCommande().toString() + " id :" + commande.getIdCommande();
+        List<Pizza> pizzaCommande = PizzaDAO.getCommandPizzas(commande.getIdCommande());
+        float prixTotal = 0.0f;
+        String prixStr ="";
+        for(Pizza piz : pizzaCommande){
+            prixTotal += piz.getPrice();
+            prixStr = prixTotal + "€";
+        }
+        if(commande.getDeliveryTime() > 30){
+            prixTotal = 0.0f;
+            prixStr = prixTotal + "€" + " (Retard)";
+        }
+        return ClientDAO.getCommandClient(commande.getIdCommande()).getNomClient() + " " + commande.getDateCommande().toString() + " Prix : " + prixStr;
     }
 }

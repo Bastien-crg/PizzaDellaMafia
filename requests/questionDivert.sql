@@ -8,4 +8,12 @@ SELECT count(*) AS order_count FROM commande WHERE id_client = ? ;
 SELECT AVG(prix_effectif) FROM commande;
 
 -- Clients that has ordered more than most people
-SELECT count(*) AS order_count FROM commande GROUP BY id_client;
+SELECT id_client as client_id, count(*) AS order_number FROM commande 
+GROUP BY id_client
+having order_number > (
+	select avg(order_count) as avg_order from(
+		SELECT count(*) AS order_count FROM commande GROUP BY id_client
+    ) as counts
+);
+
+

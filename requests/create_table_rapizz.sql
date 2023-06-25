@@ -80,3 +80,12 @@ CREATE TABLE livre(
    FOREIGN KEY(id_vehicule) REFERENCES Vehicule(id_vehicule),
    FOREIGN KEY(id_commande) REFERENCES Commande(id_commande)
 );
+
+CREATE TRIGGER give_back_money
+AFTER INSERT ON Commande
+WHERE NEW.delivery_time < 30
+BEGIN
+   UPDATE Client
+   SET Client.solde = Client.solde - NEW.prix_effectif
+   WHERE Client.id = NEW.id_client
+END;
